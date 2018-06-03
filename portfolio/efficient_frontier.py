@@ -40,9 +40,11 @@ num_portfolios = 50000
 np.random.seed(101)
 
 # populate the empty lists with each portfolios returns,risk and weights
-for single_portfolio in range(num_portfolios):
+
+for single_portfolio in range(num_portfolios): 
     weights = np.random.random(num_assets)
     weights /= np.sum(weights)
+    
     returns = np.dot(weights, returns_annual)
     volatility = np.sqrt(np.dot(weights.T, np.dot(cov_annual, weights)))
     sharpe = returns / volatility

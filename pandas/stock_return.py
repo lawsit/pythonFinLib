@@ -22,9 +22,13 @@ ticker_list = {'INTC': 'Intel',
 price_change = pd.Series()
 
 for tick in ticker_list:
+    print(tick)
+    # last row of dataframe : ticker.loc[ticker.index[-1], tick]
+    # first row of dataframe : ticker.loc[ticker.index[0], tick]
     change = 100 * (ticker.loc[ticker.index[-1], tick] - ticker.loc[ticker.index[0], tick]) / ticker.loc[ticker.index[0], tick]
     name = ticker_list[tick]
     price_change[name] = change
+    print(price_change.head())
 
 price_change.sort_values(inplace=True)
 fig, ax = plt.subplots(figsize=(10,8))
